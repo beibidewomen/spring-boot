@@ -41,6 +41,10 @@ public class HttpAspect {
         logger.info("after......");
     }
 
+    /**
+     * 获取postman返回值的方法
+     * @param object
+     */
     @AfterReturning(returning = "object",pointcut = "log()")
     public void doAfterRunning(Object object){
         logger.info("response={}",object);
