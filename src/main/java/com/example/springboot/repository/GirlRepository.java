@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface GirlRepository extends JpaRepository<Girl,String>{
     public List<Girl> findByAge(int age);
+    public Girl findById(int id);
 }

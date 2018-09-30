@@ -1,8 +1,10 @@
 package com.example.springboot.service;
 
 
+import com.example.springboot.exception.GirlException;
 import com.example.springboot.repository.GirlRepository;
 import com.example.springboot.domain.Girl;
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +29,15 @@ public class GirlService {
         girlRepository.save(girlA);
 //        int a = 10/0;
         girlRepository.save(girlB);
+    }
+
+    public void getAge(Integer id) throws Exception{
+        Girl girl = girlRepository.findById(id);
+        int age = girl.getAge();
+        if (age < 10){
+            throw new GirlException(100,"你还在上小学吧");
+        }else if (age  >= 10 && age < 16){
+            throw new GirlException(101,"你应该在上初中吧");
+        }
     }
 }

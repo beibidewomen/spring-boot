@@ -8,27 +8,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Girl {
 
     @Id
-    public String id;
+    public Integer id;
     public String name;
 
     @Min(value = 18,message = "未满18禁止入内")
     public int age;
     public String sex;
 
+    public float money;
+
     public Girl(){}
+
+    public float getMoney() {
+        return money;
+    }
+
+    public void setMoney(float money) {
+        this.money = money;
+    }
 
     public void setSex(String sex) {
         this.sex = sex;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+
 
     public void setAge(int age) {
         this.age = age;
@@ -42,9 +51,7 @@ public class Girl {
         return sex;
     }
 
-    public String getId() {
-        return id;
-    }
+
 
     public int getAge() {
         return age;
@@ -52,6 +59,14 @@ public class Girl {
 
     public String getName() {
         return name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
