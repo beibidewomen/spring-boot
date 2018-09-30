@@ -1,6 +1,7 @@
 package com.example.springboot.service;
 
 
+import com.example.springboot.ResultEnum;
 import com.example.springboot.exception.GirlException;
 import com.example.springboot.repository.GirlRepository;
 import com.example.springboot.domain.Girl;
@@ -35,9 +36,11 @@ public class GirlService {
         Girl girl = girlRepository.findById(id);
         int age = girl.getAge();
         if (age < 10){
-            throw new GirlException(100,"你还在上小学吧");
+            throw new GirlException(ResultEnum.PRIMARY_SCHOOL);
         }else if (age  >= 10 && age < 16){
-            throw new GirlException(101,"你应该在上初中吧");
+            throw new GirlException(ResultEnum.MIDDLE_SCHOOLE);
+        }else {
+            throw  new GirlException(ResultEnum.ERROR);
         }
     }
 }

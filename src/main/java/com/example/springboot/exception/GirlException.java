@@ -1,5 +1,7 @@
 package com.example.springboot.exception;
 
+import com.example.springboot.ResultEnum;
+
 public class GirlException extends RuntimeException{
     private Integer code;
 
@@ -11,8 +13,8 @@ public class GirlException extends RuntimeException{
         this.code = code;
     }
 
-    public GirlException(Integer code,String message) {
-        super(message);
-        this.code = code;
+    public GirlException(ResultEnum resultEnum) {
+        super(resultEnum.getMessage());
+        this.code = resultEnum.getCode();
     }
 }
