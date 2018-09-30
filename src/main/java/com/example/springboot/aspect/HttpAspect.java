@@ -12,6 +12,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * aop
+ */
 @Aspect
 @Component
 public class HttpAspect {
